@@ -55,7 +55,7 @@ public class Events extends Fragment {
 //            }
 //        });
 
-        workshops.setAdapter(new EventAdapter(10, "Workshop", R.layout.event_cell));
+        workshops.setAdapter(new EventAdapter(10, 1, "Workshop", R.layout.event_cell));
         workshops.setOnItemClickListener(new MaterialLeanBack.OnItemClickListener() {
             @Override
             public void onTitleClicked(int row, String text) {

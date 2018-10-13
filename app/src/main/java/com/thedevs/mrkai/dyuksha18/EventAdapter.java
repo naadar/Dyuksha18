@@ -10,13 +10,16 @@ import com.github.florent37.materialleanback.MaterialLeanBack;
 public class EventAdapter extends MaterialLeanBack.Adapter<EventCardViewHolder> {
 
 
-    int cell_count;
-    String title_for_row;
+    private int cell_count;
+    private String title_for_row;
     @LayoutRes
+    private
     int layout_id;
+    private int line_count;
 
-    public EventAdapter(int cell_count, String title_for_row, @LayoutRes int layout_id) {
+    public EventAdapter(int cell_count, int line_count, String title_for_row, @LayoutRes int layout_id) {
         this.cell_count = cell_count;
+        this.line_count = line_count;
         this.title_for_row = title_for_row;
         this.layout_id = layout_id;
     }
@@ -29,7 +32,7 @@ public class EventAdapter extends MaterialLeanBack.Adapter<EventCardViewHolder> 
 
     @Override
     public int getLineCount() {
-        return 1;
+        return line_count;
     }
 
     @Override
