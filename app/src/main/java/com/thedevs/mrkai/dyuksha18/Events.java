@@ -1,20 +1,99 @@
 package com.thedevs.mrkai.dyuksha18;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.github.florent37.materialleanback.MaterialLeanBack;
 
 
 public class Events extends Fragment {
 
+    MaterialLeanBack workshops;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.frag_events, container, false);
+
+        View view = inflater.inflate(R.layout.frag_events, container, false);
+        workshops = view.findViewById(R.id.materialLeanBack);
+        Customizer(workshops);
+        workshops.setAdapter(new MaterialLeanBack.Adapter<EventCardViewHolder>() {
+            @Override
+            public int getLineCount() {
+                return 1;
+            }
+
+            @Override
+            public int getCellsCount(int line) {
+                return 10;
+            }
+
+            @Override
+            public EventCardViewHolder onCreateViewHolder(ViewGroup viewGroup, int line) {
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.event_cell, viewGroup, false);
+                return new EventCardViewHolder(view);
+            }
+
+            @Override
+            public void onBindViewHolder(EventCardViewHolder viewHolder, int i) {
+                viewHolder.textView.setText("test " + i);
+
+
+            }
+
+            @Override
+            public String getTitleForRow(int row) {
+                return "Workshops";
+            }
+        });
+
+        workshops.setOnItemClickListener(new MaterialLeanBack.OnItemClickListener() {
+            @Override
+            public void onTitleClicked(int row, String text) {
+
+            }
+
+            @Override
+            public void onItemClicked(int row, int column) {
+                Toast.makeText(getContext(), "" + row, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        return view;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
+    public void Customizer(MaterialLeanBack materialLeanBack) {
+        materialLeanBack.setCustomizer(new MaterialLeanBack.Customizer() {
+
+            @Override
+            public void customizeTitle(TextView textView) {
+                textView.setAllCaps(true);
+                textView.setTypeface(null, Typeface.BOLD);
+                textView.setPadding(10, 0, 10, 0);
+                textView.setGravity(Gravity.LEFT);
+                textView.setTextSize(20);
+                textView.setTextColor(Color.GRAY);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(50, 0, 10, 50);
+                textView.setLayoutParams(params);
+//                textView.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "font/roboto_condensed_bold.xml"));
+            }
+        });
+    }
 }

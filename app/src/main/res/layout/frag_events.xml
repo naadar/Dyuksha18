@@ -3,16 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Users">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="237dp"
-        android:fontFamily="@font/roboto_condensed_bold"
-        android:text="Event"
-        android:textFontWeight="700"
-        android:textSize="20sp" />
+    <com.github.florent37.materialleanback.MaterialLeanBack
+        android:id="@+id/materialLeanBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:mlb_background="@color/white"
+        app:mlb_lineSpacing="30dp"
+
+        app:mlb_paddingBottom="50dp"
+        app:mlb_paddingLeft="50dp"
+        app:mlb_paddingRight="50dp"
+        app:mlb_paddingTop="50dp"
+
+        app:mlb_titleColor="@color/colorPrimary" />
 </RelativeLayout>
