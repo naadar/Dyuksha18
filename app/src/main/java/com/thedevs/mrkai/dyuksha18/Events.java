@@ -27,33 +27,7 @@ public class Events extends Fragment {
         View view = inflater.inflate(R.layout.frag_events, container, false);
         workshops = view.findViewById(R.id.materialLeanBack);
         Customizer(workshops);
-//        workshops.setAdapter(new MaterialLeanBack.Adapter<EventCardViewHolder>() {
-//            @Override
-//            public int getLineCount() {
-//                return 1;
-//            }
-//
-//            @Override
-//            public int getCellsCount(int line) {
-//                return 10;
-//            }
-//
-//            @Override
-//            public EventCardViewHolder onCreateViewHolder(ViewGroup viewGroup, int line) {
-//                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.event_cell, viewGroup, false);
-//                return new EventCardViewHolder(view);
-//            }
-//
-//            @Override
-//            public void onBindViewHolder(EventCardViewHolder viewHolder, int i) {
-//                viewHolder.textView.setText("test " + i);
-//            }
-//
-//            @Override
-//            public String getTitleForRow(int row) {
-//                return "Workshops";
-//            }
-//        });
+
 
         workshops.setAdapter(new EventAdapter(10, 1, "Workshop", R.layout.event_cell));
         workshops.setOnItemClickListener(new MaterialLeanBack.OnItemClickListener() {
