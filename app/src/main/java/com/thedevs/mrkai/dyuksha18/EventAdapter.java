@@ -6,10 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.florent37.materialleanback.MaterialLeanBack;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EventAdapter extends MaterialLeanBack.Adapter<EventCardViewHolder> {
 
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     int cell_count;
     String title_for_row;
     @LayoutRes
