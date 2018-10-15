@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thedevs.mrkai.dyuksha18">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:theme="@style/NoToolBarStyle"
             android:name=".Home"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/NoToolBarStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

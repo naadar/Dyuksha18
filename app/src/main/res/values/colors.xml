@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#c6c6c6</color>
     <color name="colorAccent">#F3F3F3</color>
     <color name="white">#ffffff</color>
+    <color name="receive_color">#b3e5fc</color>
+    <color name="send_color">#039be5</color>
 </resources>
