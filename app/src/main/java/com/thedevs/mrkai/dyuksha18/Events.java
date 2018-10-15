@@ -15,11 +15,13 @@ import android.widget.Toast;
 
 import com.github.florent37.materialleanback.MaterialLeanBack;
 
+import java.util.HashMap;
+
 
 public class Events extends Fragment {
 
     MaterialLeanBack workshops;
-
+    HashMap<Integer, String> titles = new HashMap<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,8 +30,12 @@ public class Events extends Fragment {
         workshops = view.findViewById(R.id.materialLeanBack);
         Customizer(workshops);
 
+        titles.put(0, "Workshop");
+        titles.put(1, "Informal");
+        titles.put(2, "Cultural");
+        titles.put(3, "Online");
 
-        workshops.setAdapter(new EventAdapter(10, 1, "Workshop", R.layout.event_cell));
+        workshops.setAdapter(new EventAdapter(10, titles.size(), titles, R.layout.event_cell));
         workshops.setOnItemClickListener(new MaterialLeanBack.OnItemClickListener() {
             @Override
             public void onTitleClicked(int row, String text) {
