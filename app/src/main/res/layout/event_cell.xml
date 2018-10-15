@@ -15,4 +15,5 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_condensed_bold"
         android:textColor="@color/colorPrimary" />
+
 </RelativeLayout>
