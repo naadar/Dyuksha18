@@ -7,17 +7,19 @@ import android.view.ViewGroup;
 
 import com.github.florent37.materialleanback.MaterialLeanBack;
 
+import java.util.HashMap;
+
 public class EventAdapter extends MaterialLeanBack.Adapter<EventCardViewHolder> {
 
 
     private int cell_count;
-    private String title_for_row;
+    private HashMap<Integer, String> title_for_row;
     @LayoutRes
     private
     int layout_id;
     private int line_count;
 
-    public EventAdapter(int cell_count, int line_count, String title_for_row, @LayoutRes int layout_id) {
+    public EventAdapter(int cell_count, int line_count, HashMap<Integer, String> title_for_row, @LayoutRes int layout_id) {
         this.cell_count = cell_count;
         this.line_count = line_count;
         this.title_for_row = title_for_row;
@@ -44,12 +46,13 @@ public class EventAdapter extends MaterialLeanBack.Adapter<EventCardViewHolder> 
     @Override
     public void onBindViewHolder(EventCardViewHolder viewHolder, int i) {
 //        i represents the element in the line
-        viewHolder.textView.setText("test " + i);
+        viewHolder.textView.setText("test " + getLineCount());
+
     }
 
     @Override
     public String getTitleForRow(int row) {
-        return title_for_row;
+        return title_for_row.get(row);
     }
 
 

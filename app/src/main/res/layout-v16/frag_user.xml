@@ -17,21 +17,24 @@
         android:layout_marginRight="27dp"
         android:layout_marginTop="21dp"
         android:src="@drawable/ic_user"
-        app:civ_border_color="#6b6a6a"
+        app:civ_border_color="#8d6b6a6a"
         app:civ_border_width="1dp" />
 
     <TextView
         android:id="@+id/username"
         android:layout_width="230dp"
-        android:layout_height="76dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/profile_image"
-        android:fontFamily="@font/roboto_condensed_bold"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
+        android:capitalize="words"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:gravity="left"
         android:minLines="2"
         android:text="ASISH SHAJI THOMAS"
+        android:textAllCaps="true"
         android:textSize="25sp" />
 
 </RelativeLayout>
